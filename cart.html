@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flower Shop Cart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="icon.js"></script>
+    <link rel="stylesheet" href="cart.css">
+</head>
+
+<body>
+
+
+
+      <!-- navbar section start -->
+      <nav class="navbar navbar-expand-lg navbar-light t">
+        <div class="container-fluid" style="background-color: black; height: 80px;">
+            <a class="navbar-brand ps-5 ms-5" href="#">Flower Shop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="About.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="shop.html">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+
+
+                
+                          <!-- cart  -->
+               <div class="cart ps-5 mt-4">
+                <button id="cartButton">
+                    <i class='bx bxs-cart-alt'></i> <span id="cartCount" class="badge">0</span>
+                  </button>
+            </div>
+        </div>
+    </div>
+</nav>
+    
+
+
+      
+    
+  
+  
+<!-- Shopping Cart Modal -->
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content pt-5 pb-2">
+    <div class="modal-header">
+      <h5 class="modal-title" id="cartModalLabel">Shopping Cart</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <div id="cartItems">
+        <!-- Cart items will be dynamically added here -->
+      </div>
+      <div class="d-flex justify-content-between pt-4">
+        <h5>Subtotal:</h5>
+        <h5 id="cartTotal">$0.00</h5>
+      </div>
+    </div>
+    <div style="display: grid; gap: 10px;">
+      <button type="button" class="btn" style="background-color: #00AC97; height: 50px; font-size: 20px; color: white;" id="viewCartBtn"><a href="cart.html" style="text-decoration: none; color: white;">View Cart</a></button>
+      <button type="button" class="btn" style="background-color: #00AC97; height: 50px; font-size: 20px; color: white;" id="checkoutBtn">Checkout</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+    <div class="container mt-5">
+        <h2>Your Cart</h2>
+        <div class="row">
+            <!-- Cart Table -->
+            <div class="col-md-8">
+                <div class="cart-table">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Subtotal</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="cartTableItems"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Cart Summary -->
+            <div class="col-md-4">
+                <div class="cart-summary">
+                    <h3>Cart totals</h3>
+                    <div>
+                        <p>Subtotal: $<span id="subtotalPrice">0.00</span></p>
+                        <p class="total-section">Total: $<span id="totalPrice">0.00</span></p>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Have a coupon?" class="form-control" />
+                        <button class="btn btn-primary mt-2">Apply</button>
+                    </div>
+                    <!-- Proceed to Checkout Button -->
+                    <button class="btn proceed-btn w-100 mt-3" id="proceedToCheckout">Proceed to Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <!-- footer section start  -->
+    <footer style="background-color: #e8f7f7;">
+        <div class="container pt-5 mt-5">
+            <div class="col-md-12 pt-5" style="display: flex; text-align: left;">
+                <div class="col-md-6">
+                    <div class="first-sec">
+                        <h2 class="pb-3">Flower Shop</h2>
+                        <p>Welcome to the world of Florist, where flowers come to life with love <br>and creativity.
+                            Discover our story, our passion for flowers, and our <br>commitment to making every moment
+                            memorable.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="sec-sec">
+                        <h2 class="pb-3">Links</h2>
+                        <ul class="second-ul">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="About.html">About</a></li>
+                            <li><a href="shop.html">Shop</a></li>
+                            <li><a href="contact.html"> Contact</a></li>
+                        </ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="third-sec">
+                        <h2 class="pb-3">Contact Us</h2>
+                        <p>Address: 13 Fifth Avenue, New <br>York 101660<br>
+                            Email: contact@info.com<br>
+                            Phone: +91 987 654 321</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 pt-5 pb-5" style="display: flex;">
+                <div class="col-md-6 pt-5">
+                    <p>Copyright © 2024 Flower Shop</p>
+                </div>
+                <div class="col-md-6 pt-5"
+                    style="display: flex; justify-content: end; font-size: 20px; gap: 20px; cursor: pointer;">
+                    <div class="social">
+                        <i class='bx bxl-facebook-circle'></i>
+                        <i class='bx bxl-twitter'></i>
+                        <i class='bx bxl-instagram'></i>
+                        <i class='bx bxl-youtube'></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartTableItems = document.getElementById("cartTableItems");
+            const subtotalPrice = document.getElementById("subtotalPrice");
+            const totalPrice = document.getElementById("totalPrice");
+
+            let subtotal = 0;
+
+            cart.forEach((item, index) => {
+                subtotal += item.totalPrice;
+
+                const tableItem = `
+                    <tr>
+                        <td><img src="${item.image}" alt="${item.name}" class="product-image"></td>
+                        <td>${item.name}</td>
+                        <td>$${item.price.toFixed(2)}</td>
+                        <td>${item.quantity}</td>
+                        <td>$${item.totalPrice.toFixed(2)}</td>
+                        <td><i class="fa fa-times remove-icon" onclick="removeFromCart(${index})"></i></td>
+                    </tr>
+                `;
+                cartTableItems.insertAdjacentHTML("beforeend", tableItem);
+            });
+
+            subtotalPrice.textContent = subtotal.toFixed(2);
+            totalPrice.textContent = subtotal.toFixed(2);
+
+            // Remove item from cart
+            window.removeFromCart = function (index) {
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                location.reload(); // Reload the page to update the cart
+            }
+
+            // Navigate to Checkout
+            document.getElementById("proceedToCheckout").addEventListener("click", function () {
+                window.location.href = "checkout.html"; // Redirect to the checkout page
+            });
+        });
+    </script>
+</body>
+
+</html>

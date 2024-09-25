@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flower Shop Checkout</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="icon.js"></script>
+    <style>
+
+
+
+
+body{
+    overflow-x: hidden;
+}
+.collapse{
+    justify-content: center;
+}
+
+.navbar-brand{
+    font-weight: 700;
+    color: white !important;   
+    font-size: 40px !important;
+}
+.navbar-nav li{
+    padding: 15px 20px;
+}
+li a{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+
+.nav-item a:hover{
+    color: #00AC97;
+}
+
+
+/* cart */
+
+.cart button i{
+    font-size: 30px;
+    position: relative;
+    color: #00AC97;
+    background-color: transparent;
+}
+.cart button{
+    border: black;
+    background-color: transparent;
+}
+
+.cart button span {
+    position: absolute;
+    border-radius: 37%;
+    padding: 1px 4px;
+    background-color: #20c997;
+    font-size: 15px;
+    color: black;
+}
+.cart-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #20c997;
+    color: black;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+        .checkout-summary {
+            border: 1px solid #e5e5e5;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #fff;
+        }
+
+        .checkout-summary h3 {
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: 500;
+        }
+        .form-label {
+            display: block;
+        }
+        .form-control {
+            margin-bottom: 20px;
+        }
+        .checkout-container {
+            padding: 30px;
+            background-color: white;
+            box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+            margin-top: 30px;
+        }
+        .error-message {
+            color: #e74c3c;
+            font-weight: bold;
+            border: 1px solid #e74c3c;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #fce4e4;
+        }
+        .checkout-summary button {
+            background-color: rgb(48, 199, 181);
+            border: none;
+        }
+
+        .proceed-btn {
+            background-color: #ff6b6b;
+            border: none;
+            color: white;
+        }
+
+        .product-image {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+
+        .error-message {
+            color: red;
+            font-weight: bold;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+
+
+
+
+        
+
+.second-ul li{
+    display: block;
+}
+.second-ul li a{
+    color: rgb(33, 37, 41);
+    font-weight: 400;
+}
+.second-ul li a:hover{
+    color: #00AC97;
+}
+.social i:hover{
+    color: #00AC97;
+}
+
+
+    </style>
+</head>
+
+<body>
+
+
+
+
+    
+      <!-- navbar section start -->
+      <nav class="navbar navbar-expand-lg navbar-light t">
+        <div class="container-fluid" style="background-color: black; height: 80px;">
+            <a class="navbar-brand ps-5 ms-5" href="#">Flower Shop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="About.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="shop.html">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+
+
+                
+                          <!-- cart  -->
+               <div class="cart ps-5 mt-4">
+                <button id="cartButton">
+                    <i class='bx bxs-cart-alt'></i> <span id="cartCount" class="badge">0</span>
+                  </button>
+            </div>
+        </div>
+    </div>
+</nav>
+    
+
+
+      
+    
+  
+  
+<!-- Shopping Cart Modal -->
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content pt-5 pb-2">
+    <div class="modal-header">
+      <h5 class="modal-title" id="cartModalLabel">Shopping Cart</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <div id="cartItems">
+        <!-- Cart items will be dynamically added here -->
+      </div>
+      <div class="d-flex justify-content-between pt-4">
+        <h5>Subtotal:</h5>
+        <h5 id="cartTotal">$0.00</h5>
+      </div>
+    </div>
+    <div style="display: grid; gap: 10px;">
+      <button type="button" class="btn" style="background-color: #00AC97; height: 50px; font-size: 20px; color: white;" id="viewCartBtn"><a href="cart.html" style="text-decoration: none; color: white;">View Cart</a></button>
+      <button type="button" class="btn" style="background-color: #00AC97; height: 50px; font-size: 20px; color: white;" id="checkoutBtn">Checkout</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+    <div class="container">
+        <div class="col-md-12" style="display: flex;">
+        <div class="col-md-8">
+        <div class="checkout-container">
+            <h2>Checkout</h2>
+    
+            <!-- Customer Information -->
+            <div class="mb-4">
+                <label class="form-label">Customer information</label>
+                <input type="email" class="form-control" placeholder="Username or Email Address" required>
+            </div>
+    
+            <!-- Billing Details -->
+            <h4>Billing details</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="form-label">First name</label>
+                    <input type="text" class="form-control" placeholder="First name" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Last name</label>
+                    <input type="text" class="form-control" placeholder="Last name" required>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-md-12">
+                    <label class="form-label">Company name (optional)</label>
+                    <input type="text" class="form-control" placeholder="Company name (optional)">
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-md-12">
+                    <label class="form-label">Country / Region</label>
+                    <select class="form-control" required>
+                        <option value="India">India</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-md-12">
+                    <label class="form-label">Street address</label>
+                    <input type="text" class="form-control" placeholder="House number and street name" required>
+                </div>
+                <div class="col-md-12">
+                    <input type="text" class="form-control" placeholder="Apartment, suite, unit, etc. (optional)">
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="form-label">Town / City</label>
+                    <input type="text" class="form-control" placeholder="Town / City" required>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">State</label>
+                    <select class="form-control" required>
+                        <option>Select State</option>
+                        <!-- Add state options -->
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">PIN Code</label>
+                    <input type="text" class="form-control" placeholder="PIN Code" required>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="form-label">Phone</label>
+                    <input type="text" class="form-control" placeholder="Phone" required>
+                </div>
+            </div>
+    
+            <!-- Additional Information -->
+            <h4>Additional information</h4>
+            <div class="mb-4">
+                <label class="form-label">Notes about your order, e.g. special notes for delivery.</label>
+                <textarea class="form-control" rows="3"></textarea>
+            </div>
+    
+            <!-- Payment Section -->
+            <h4>Payment</h4>
+            <div class="error-message">
+                Sorry, it seems that there are no available payment methods. Please contact us if you require assistance or wish to make alternate arrangements.
+            </div>
+    
+            <!-- Submit Button -->
+            <div class="mt-4">
+                <button class="btn btn-primary btn-lg">Place Order</button>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+            <!-- Checkout Summary -->
+            <div class="col-md-4 mt-5 pt-5">
+                <div class="checkout-summary sticky-top pb-5 mb-5">
+                    <h3>Your Order</h3>
+                    <div id="checkoutItems"></div>
+                    <p class="total-section">Total: $<span id="totalCheckoutPrice">0.00</span></p>
+                    <button class="btn proceed-btn w-100 mt-3" id="placeOrderBtn">Place Order</button>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+    
+    <!-- footer section start  -->
+    <footer style="background-color: #e8f7f7;">
+        <div class="container pt-5 mt-5">
+            <div class="col-md-12 pt-5" style="display: flex; text-align: left;">
+                <div class="col-md-6">
+                    <div class="first-sec">
+                        <h2 class="pb-3">Flower Shop</h2>
+                        <p>Welcome to the world of Florist, where flowers come to life with love <br>and creativity.
+                            Discover our story, our passion for flowers, and our <br>commitment to making every moment
+                            memorable.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="sec-sec">
+                        <h2 class="pb-3">Links</h2>
+                        <ul class="second-ul">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="About.html">About</a></li>
+                            <li><a href="shop.html">Shop</a></li>
+                            <li><a href="contact.html"> Contact</a></li>
+                        </ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="third-sec">
+                        <h2 class="pb-3">Contact Us</h2>
+                        <p>Address: 13 Fifth Avenue, New <br>York 101660<br>
+                            Email: contact@info.com<br>
+                            Phone: +91 987 654 321</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 pt-5 pb-5" style="display: flex;">
+                <div class="col-md-6 pt-5">
+                    <p>Copyright © 2024 Flower Shop</p>
+                </div>
+                <div class="col-md-6 pt-5"
+                    style="display: flex; justify-content: end; font-size: 20px; gap: 20px; cursor: pointer;">
+                    <div class="social">
+                        <i class='bx bxl-facebook-circle'></i>
+                        <i class='bx bxl-twitter'></i>
+                        <i class='bx bxl-instagram'></i>
+                        <i class='bx bxl-youtube'></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const checkoutItems = document.getElementById("checkoutItems");
+            const totalCheckoutPrice = document.getElementById("totalCheckoutPrice");
+
+            let total = 0;
+
+            cart.forEach((item) => {
+                total += item.totalPrice;
+
+                const checkoutItem = `
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="${item.image}" alt="${item.name}" class="product-image">
+                        <div class="ms-3">
+                            <p class="mb-1">${item.name} × ${item.quantity}</p>
+                            <p class="text-muted">$${item.totalPrice.toFixed(2)}</p>
+                        </div>
+                    </div>
+                `;
+                checkoutItems.insertAdjacentHTML("beforeend", checkoutItem);
+            });
+
+            totalCheckoutPrice.textContent = total.toFixed(2);
+        });
+
+        const checkoutForm = document.getElementById("checkoutForm");
+        const errorMessages = document.getElementById("errorMessages");
+        const placeOrderBtn = document.getElementById("placeOrderBtn");
+
+        // Form validation before placing the order
+        placeOrderBtn.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            if (!checkoutForm.checkValidity()) {
+                errorMessages.classList.remove("hidden");
+            } else {
+                errorMessages.classList.add("hidden");
+                alert("Order placed successfully!");
+            }
+        });
+    </script>
+</body>
+
+</html>

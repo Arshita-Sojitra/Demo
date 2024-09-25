@@ -1,0 +1,207 @@
+body{
+    overflow-x: hidden;
+}
+.collapse{
+    justify-content: center;
+}
+
+.navbar-brand{
+    font-weight: 700;
+    color: white !important;   
+    font-size: 40px !important;
+}
+.navbar-nav li{
+    padding: 15px 20px;
+}
+li a{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+
+.nav-item a:hover{
+    color: #00AC97;
+}
+
+
+/* cart */
+
+.cart button i{
+    font-size: 30px;
+    position: relative;
+    color: #00AC97;
+}
+.cart button{
+    background-color: black;
+    border: black;
+}
+
+.cart button span {
+    position: absolute;
+    border-radius: 37%;
+    padding: 1px 4px;
+    background-color: #20c997;
+    font-size: 15px;
+    color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.dropdown-container {
+    width: 200px;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+
+.dropdown-container::after {
+    content: '\25BC'; 
+    font-size: 14px;
+    color: #555;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    pointer-events: none;
+}
+
+.dropdown-container {
+    position: relative;
+}
+
+.dropdown-container select {
+    padding-right: 30px;
+}
+
+select:focus {
+    outline: none;
+    border-color: #555;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.card p,.star i,h5 {
+    color: #666666;
+    text-align: center;
+    position: relative;
+    top: -30px;
+}
+.card h5 strike{
+    color: #6c696990;
+}
+
+.card img{
+    position: relative;
+    top: -46px;
+}
+.card p:first-child{
+    border: 1px solid white;
+    border-radius: 20px;
+    background-color: white;
+    color: black !important;
+    position: relative;
+    height: 30px;
+    left: 20px;
+    top: 10px;
+    text-align: center;
+    z-index: 1;
+    box-shadow: 1px 1px 10px 1px rgb(184, 182, 182);
+    width: 50px;
+}
+.card p{
+    top: -30px;
+}
+.icons {
+    position: absolute;
+    right: 10px;
+    gap: 5px;
+    opacity: 0;
+    flex-direction: column;
+    display: flex;
+    font-size: 25px;
+}
+.icons span{
+    border: 1px solid white;
+    border-radius: 20px;
+    background-color: white;
+}
+.card:hover .icons {
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+.second-ul li{
+    display: block;
+}
+.second-ul li a{
+    color: rgb(33, 37, 41);
+    font-weight: 400;
+}
+.second-ul li a:hover{
+    color: #00AC97;
+}
+.social i:hover{
+    color: #00AC97;
+}

@@ -1,0 +1,246 @@
+body{
+    overflow-x: hidden;
+}
+.collapse{
+    justify-content: center;
+}
+
+.navbar-brand{
+    font-weight: 700;
+    color: white !important;   
+    font-size: 40px !important;
+}
+.navbar-nav li{
+    padding: 15px 20px;
+}
+li a{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+
+.nav-item a:hover{
+    color: #00AC97;
+}
+
+
+/* cart */
+
+.cart button i{
+    font-size: 30px;
+    position: relative;
+    color: #00AC97;
+    background-color: transparent;
+}
+.cart button{
+    border: black;
+    background-color: transparent;
+}
+
+.cart button span {
+    position: absolute;
+    border-radius: 37%;
+    padding: 1px 4px;
+    background-color: #20c997;
+    font-size: 15px;
+    color: black;
+}
+.cart-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #20c997;
+    color: black;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.image img{
+    margin-top: -100px;
+    position: relative;
+    z-index: -1;
+    
+    background-size: cover;
+}
+.font{
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 2;
+    margin-top: -500px;
+}
+.font h1{
+    font-size: 55px;
+}
+.font h6:first-child{
+    letter-spacing: 2px;
+}
+
+
+
+
+
+
+.about-01 img{
+    position: relative;
+    border: 1px solid white;
+    border-top-left-radius: 46%;
+    border-top-right-radius: 46%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.about-02 img{
+    position: relative;
+    border: 1px solid white;
+    border-top-left-radius: 47%;
+    border-top-right-radius: 47%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+
+.about-03 h6:first-child{
+    color: rgb(48, 199, 181);
+    letter-spacing: 2px;
+}
+
+.about-03 h1{
+    font-size: 46px;
+}
+ 
+.about-03 h6{
+    color: rgb(79, 86, 85);
+}
+
+
+
+
+
+.main{
+    background-color: black;
+    color: white;
+}
+
+.story-01 h6{
+    letter-spacing: 2px;
+    color: #00AC97;
+}
+.story-img img{
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 50%;
+    top: -150px ;
+    position: relative;
+}
+
+
+
+
+
+
+
+.team{
+    text-align: center;
+}
+.team h6:first-child{
+    color: #00AC97;
+    letter-spacing: 2px;
+}
+
+
+.team-member{
+    text-align: center;
+}
+.team-member img{
+    border-radius: 10px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+.team-member h6{
+    color: grey;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.offer-01 img{
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+
+.offer-02 h6{
+    letter-spacing: 2px;
+    color: #00AC97;
+}
+.offer-02 h1{
+    font-size: 45px;
+    color: white;
+}
+
+.offer-02 button{
+    height: 50px;
+    width: 150px;
+    border-radius: 10px;
+    font-weight: 600;
+    border: #00AC97;
+    background-color: rgb(0, 172, 151);
+}
+.offer-02 button a{
+    text-decoration: none;
+    color: white;
+    letter-spacing: 2px;
+}
+.offer-02 button:hover{
+    opacity: 0.8;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.second-ul li{
+    display: block;
+}
+.second-ul li a{
+    color: rgb(33, 37, 41);
+    font-weight: 400;
+}
+.second-ul li a:hover{
+    color: #00AC97;
+}
+.social i:hover{
+    color: #00AC97;
+}
